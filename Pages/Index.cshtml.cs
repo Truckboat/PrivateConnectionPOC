@@ -30,7 +30,7 @@ namespace WebStorageSample.Pages
 
         public void OnGet()
         {
-            string content = string.Format("Hello Service Connector! UTC Now: {0} {1}.", DateTimeOffset.UtcNow.ToString(), GetIPAddress);
+            string content = string.Format("Hello Service Connector! UTC Now: {0} {1}.", DateTimeOffset.UtcNow.ToString(), GetIPAddress());
 
             StorageHelper.UploadBlob(Environment.GetEnvironmentVariable(Const.ENDPOINT_ENV_KEY), Const.CONTAINER_NAME, Const.BLOB_NAME, content).Wait();
             DisplayWords = StorageHelper.GetBlob(Environment.GetEnvironmentVariable(Const.ENDPOINT_ENV_KEY), Const.CONTAINER_NAME, Const.BLOB_NAME).Result;
